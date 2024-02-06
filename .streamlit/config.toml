@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#4CAF50"  # A fresh green color associated with health and vitality
+backgroundColor = "#f8f9fa"  # A light background for a clean and modern look
+secondaryBackgroundColor = "#e9ecef"  # A secondary background color for contrast
+textColor = "#343a40"  # A dark gray for text
+font = "sans serif"
