@@ -234,7 +234,7 @@ elif selected_tab == "Deteksi kanker paru-paru":
     tab1, tab2= st.tabs(["Analisis Dataset",'Algoritma'])
     with tab1:
         st.header("Dataset Gambar CT-Scan")
-        st.image("images\dada.png", caption="Gambar pada Dataset CT-Scan dada")
+        st.image("images/dada.png", caption="Gambar pada Dataset CT-Scan dada")
         st.write("Jumlah gambar pada dataset yang digunakan: ")
         code = '''Total training gambar paru-paru kanker: 486
 Total training gambar paru-paru normal: 151
