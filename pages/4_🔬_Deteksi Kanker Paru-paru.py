@@ -17,7 +17,7 @@ from streamlit_lottie import st_lottie
 st.set_page_config(page_title='Lung Cancer Detection')
 
 def loading_model():
-    fp = "models/keras_model.h5"
+    fp = "models/cnn.h5"
     model_loader = load_model(fp)
     return model_loader
 

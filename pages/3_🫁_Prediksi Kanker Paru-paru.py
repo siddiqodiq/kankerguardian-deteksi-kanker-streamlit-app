@@ -11,7 +11,7 @@ from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
 st.set_page_config(page_title='Lung Cancer Detection')
 
-cancer_model = pickle.load(open('models/final_model.sav', 'rb'))
+cancer_model = pickle.load(open('models/prediksi.sav', 'rb'))
 
   ##this code is reduce effort of manuallu entering values
 testx=pd.read_csv("datasets/testx.csv",index_col=0)
