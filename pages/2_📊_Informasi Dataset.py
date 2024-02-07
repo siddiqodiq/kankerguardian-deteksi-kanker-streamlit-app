@@ -25,7 +25,7 @@ if selected_tab == "Prediksi paru-paru":
     tab1, tab2, tab3 , tab4= st.tabs(["Analisis Dataset", "Training Data", "Test Data","Algoritma"])
     with tab1:
             
-            st.header("Lung Cancer Dataset")
+            st.header("Dataset Kanker paru-paru")
             data=pd.read_csv("datasets/data.csv")
             data = data.rename(columns={
         'Age': 'Usia',
@@ -102,7 +102,7 @@ dtype='object')'''
             st.code(code, language='python')
 
     with tab2:
-            st.header("Dataset Gambar CT-Scan dada")
+            st.header("Dataset Training")
             st.subheader("X_Train Data")
             data=pd.read_csv("datasets/train.csv", index_col=0)
             data = data.rename(columns={
@@ -146,7 +146,7 @@ dtype='object')'''
             st.dataframe(data, use_container_width=True)
         
     with tab3:
-            st.header("Lung Cancer Training Dataset")
+            st.header("Dataset Training")
             st.subheader("X_Test Data")
             data=pd.read_csv("datasets/testx.csv", index_col=0)
             data = data.rename(columns={
