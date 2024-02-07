@@ -7,10 +7,11 @@ import pandas as pd
 import matplotlib as plt
 import seaborn as sns
 from PIL import Image 
+from streamlit_extras.stylable_container import stylable_container
 from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
 st.set_page_config(page_title='Lung Cancer Detection')
-
+        
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -23,9 +24,8 @@ _left, mid, _right = st.columns([0.2,0.4,0.2])
 with mid:
         st_lottie(
             lottie_lung
-        )# page title
+        )
 st.title('Apa itu kanker paru-paru?')
-
 st.write("Kanker paru merupakan kanker yang terjadi pada sel-sel dinding saluran udara organ paru. Sel tidak normal ini membelah secara tidak terkontrol dan membentuk suatu masa padat atau yang kita kenal tumor. Seiring dengan perkembangan sel ini, fungsi normal paru dapat terganggu. Sel kanker ini juga dapat menyebar ke jaringan getah bening, organ paru lain, tulang, otak, dan hati. Kanker paru dapat berkembang dalam waktu bulan hingga menahun tanpa menunjukkan tanda dan gejala yang jelas.")
 st.write("Di Indonesia, berdasarkan data Globocan 2020, jumlah kasus baru kanker paru menempati urutan ke-3 (8,8%), setelah kanker payudara (16,6%), dan kanker serviks (9,2%). Kanker paru merupakan jenis kanker yang paling banyak yang terjadi pada laki-laki (14,1%).")
 st.write("")
