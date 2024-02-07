@@ -35,7 +35,8 @@ if temp is not None:
     }
     # Convert file size to kilobytes
     file_details["FileSizeKB"] = file_details["FileSize"] / 1024
-
+url = "https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images"
+st.write("Contoh Gambar [CT-Scan Dada](%s)" % url)
 buffer = temp
 temp_file = NamedTemporaryFile(delete = False)
 if buffer:
@@ -68,7 +69,6 @@ else:
 
     image = Image.open(temp)
     st.image(image,use_column_width=True)
-
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
