@@ -17,7 +17,7 @@ lottie_url_kanker = "https://lottie.host/f9fb8e7c-1c04-4506-937a-52df427d9a53/xF
 def example():
     colored_header(
         label="🦠KankerGuardian🦠",
-        description="Kankerguardian adalah aplikasi inovatif yang menghadirkan solusi lengkap untuk edukasi, deteksi, dan prediksi kanker paru-paru dan kulit. Dengan fokus pada memberikan pemahaman mendalam tentang kedua jenis kanker tersebut, aplikasi ini menjadi penjaga terpercaya dalam upaya pencegahan dan pemantauan kesehatan.",
+        description="Kankerguardian adalah aplikasi inovatif yang menghadirkan solusi lengkap untuk edukasi, deteksi, dan prediksi kanker paru-paru. Dengan fokus pada memberikan pemahaman mendalam tentang kedua jenis kanker tersebut, aplikasi ini menjadi penjaga terpercaya dalam upaya pencegahan dan pemantauan kesehatan.",
         color_name="green-70",
     )
 example()
