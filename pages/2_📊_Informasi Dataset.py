@@ -19,7 +19,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 st.sidebar.title("Informasi Dataset📊")
-tabs = ["Prediksi paru-paru", "Deteksi kanker paru-paru", "Deteksi kanker kulit"]
+tabs = ["Prediksi paru-paru", "Deteksi kanker paru-paru"]
 selected_tab = st.sidebar.selectbox("Daftar dataset:", tabs)
 if selected_tab == "Prediksi paru-paru":
     tab1, tab2, tab3 , tab4= st.tabs(["Analisis Dataset", "Training Data", "Test Data","Algoritma"])
@@ -334,112 +334,4 @@ Epoch 10/15
 
         st.write("Seperti yang dapat kita lihat dari diagram di atas bahwa Model  berkerja baik pada Data Pelatihan dan juga Data Validasi")
 
-#Kanker Kulit---
-elif selected_tab == "Deteksi kanker kulit":
-    tab1, tab2= st.tabs(["Analisis Dataset",'Algoritma'])
-    with tab1:
-        st.header("Dataset Gambar Kanker Kulit")
-        st.image("images/dataset kanker kulit.png", caption="Gambar kulit yang terkena kanker")
-        st.write("Jumlah gambar pada dataset yang digunakan: ")
-        code = '''Total training gambar kulit normal: 1440
-Total training gambar kulit normal: 1197
-Total test gambar kulit kanker: 300
-Total test gambar kulit normal: 360'''
-        st.code(code, language='python')
-        url = "https://www.kaggle.com/datasets/fanconic/skin-cancer-malignant-vs-benign/"
-        st.write("Berikut dataset yang digunakan [Dataset Gambar Kanker Kulit](%s)" % url)
-    with tab2:
-        st.header("Model Xception CNN")
-        st.write("Xception memiliki kemampuan generalisasi yang baik terhadap berbagai tipe gambar. Ini dapat berguna dalam mendeteksi kanker kulit pada berbagai jenis dan kondisi kulit.")
-        
-
-        st.subheader("Pendekatan yang digunakan : ")
-        st.markdown(
-                """
-                - Training model menggunakan Xception dari tensorflow.keras
-                - Model awal menggunakan arsitektur Xception yang telah di-pretrained pada dataset ImageNet (weights='imagenet').
-                - Didefinisikan sebuah fungsi(gm_exp) generalized_mean_pool_2d yang melakukan operasi pooling generalisasi rata-rata pada hasil output dari model Xception.
-                - Dibangun top model yang menerima output dari model Xception dan menggunakan generalized mean pooling.
-                - Menggabungkan model Xception dan top model menjadi satu model utuh.
-                - Digunakan ImageDataGenerator dari Keras untuk melakukan augmentasi data pada data latih.
-                - Model dilatih menggunakan metode fit_generator
-                """
-                )
-        st.subheader("Model Summary")
-        code='''
-        The following Variables were used a Lambda layer's call (lambda), but
-are not present in its tracked objects:
-<tf.Variable 'Variable:0' shape=() dtype=float32>
-It is possible that this is intended behavior, but it is more likely
-an omission. This is a strong indication that this layer should be
-formulated as a subclassed Layer rather than a Lambda layer.
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_2 (InputLayer)        [(None, 10, 10, 2048)]    0         
-                                                                 
- lambda (Lambda)             (None, 2048)              0         
-                                                                 
- dropout (Dropout)           (None, 2048)              0         
-                                                                 
- activation (Activation)     (None, 2048)              0         
-                                                                 
- dense (Dense)               (None, 2)                 4098      
-                                                                 
-=================================================================
-Total params: 4098 (16.01 KB)
-Trainable params: 4098 (16.01 KB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-        '''
-        st.code(code, language="python")
-        st.subheader("Model Compile ")
-        st.write(" Model dilatih dengan menggunakan metode binary_crossentropy loss, karena ini adalah masalah klasifikasi biner, di mana output akhir menggunakan fungsi aktivasi sigmoid. Optimizer yang digunakan adalah rmsprop dengan tingkat pembelajaran (learning rate) sebesar 0.001. Selama pelatihan, Anda akan memantau akurasi klasifikasi.")
-        code = '''model.compile(
-  loss='categorical_crossentropy',
-  optimizer='adam',
-  metrics=['accuracy']
-)
-class_map = training_set.class_indices
-class_map
-'''
-        st.code(code, language='python')
-        code = '''Model = model.fit_generator(
-training_set,
-validation_data=test_set,
-epochs=10,
-steps_per_epoch=len(training_set),
-validation_steps=len(test_set)
-)'''
-        st.code(code, language='python')
-        st.caption("Hasil akurasi :")
-        code='''
-        Epoch 5/10
-55/55 [==============================] - 93s 2s/step - loss: 0.0512 - accuracy: 0.9829 - val_loss: 0.5893 - val_accuracy: 0.8515
-Epoch 6/10
-55/55 [==============================] - 92s 2s/step - loss: 0.0192 - accuracy: 0.9917 - val_loss: 0.5626 - val_accuracy: 0.8894
-Epoch 7/10
-55/55 [==============================] - 92s 2s/step - loss: 0.0130 - accuracy: 0.9951 - val_loss: 0.5831 - val_accuracy: 0.8879
-Epoch 8/10
-55/55 [==============================] - 92s 2s/step - loss: 0.0185 - accuracy: 0.9928 - val_loss: 0.6202 - val_accuracy: 0.8758
-Epoch 9/10
-55/55 [==============================] - 92s 2s/step - loss: 0.0217 - accuracy: 0.9936 - val_loss: 0.5846 - val_accuracy: 0.8636
-Epoch 10/10
-55/55 [==============================] - 91s 2s/step - loss: 0.0293 - accuracy: 0.9920 - val_loss: 0.8072 - val_accuracy: 0.8833
-        '''
-        st.code(code, language="python")
-        st.subheader("Traning vs Validation (Accuracy dan Loss)")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            acc = Image.open("images/kulit_acc.png")
-            st.image(acc, caption='Model Akurasi',width=350)
-
-        with col2:
-                loss = Image.open("images/kulit_loss.png")
-
-                st.image(loss, caption='Model Loss',width=350)
-
-        st.write("Seperti yang dapat kita lihat dari diagram di atas bahwa Model  berkerja baik pada Data Pelatihan dan juga Data Validasi")
 

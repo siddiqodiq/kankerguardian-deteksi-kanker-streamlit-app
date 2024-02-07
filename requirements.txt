@@ -14,4 +14,3 @@ tensorflow
 tensorflow-intel
 scikit-learn
 requests
-tensorrt==8.5.1.7
