@@ -23,7 +23,17 @@ jalankan dengan stremlit:
  - [CT-Scan Dada](https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images?resource=download)
  - [Pasien kanker paru-paru](https://github.com/siddiqodiq/kankerguardian-deteksi-kanker-streamlit-app/tree/main/datasets)
 
+## Link aplikasi
+https://kankerguardian-deteksi-kanker-app-app-4axbc5scpmj8mkviowcuzy.streamlit.app/
+
 ## Dokumentasi
+
+![App Screenshot](https://i.ibb.co/1KNjf2B/Screenshot-732.png)
+![App Screenshot](https://i.ibb.co/pwHHvyz/Screenshot-731.png)
+![App Screenshot](https://i.ibb.co/MVr51tL/Screenshot-730.png)
+![App Screenshot](https://i.ibb.co/NmTfCBk/Screenshot-729.png)
+![App Screenshot](https://i.ibb.co/5r07zRn/Screenshot-728.png)
+
 
 
 
